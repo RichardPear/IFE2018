@@ -18,20 +18,21 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            background: black;
+            color: white;
         }
 
         .container {
             perspective: 800px;
         }
         .container:hover .cube-wrapper {
-            animation: rotate 10s linear infinite alternate;
+            animation: rotate 20s linear infinite alternate;
         }
         .cube-wrapper {
             position: relative;
             transform-style: preserve-3d;
             width: 400px;
             height: 400px;
-            transform-origin: center center -200px;
             transition: all .5s;
         }
         @keyframes rotate{
@@ -58,36 +59,32 @@
         }
 
         .front {
+            transform: translateZ(200px);
             background: rgba(0, 0, 255, 0.3);
         }
 
         .back {
-            transform: translateZ(-400px) rotateY(180deg);
-            transform-origin: center center;
+            transform: translateZ(-200px) rotateY(180deg);
             background: rgba(0, 0, 255, 0.3);
         }
 
         .top {
-            transform: rotateX(90deg) translateZ(400px);
-            transform-origin: bottom center;
+            transform: rotateX(90deg) translateZ(200px);
             background: rgba(0, 0, 255, 0.3);
         }
 
         .bottom {
-            transform: rotateX(-90deg) translateZ(400px);
-            transform-origin: top center;
+            transform: rotateX(-90deg) translateZ(200px);
             background: rgba(0, 0, 255, 0.3);
         }
 
         .left {
-            transform: rotateY(-90deg) translateZ(400px);
-            transform-origin: right center;
+            transform: rotateY(-90deg) translateZ(200px);
             background: rgba(0, 0, 255, 0.3);
         }
 
         .right {
-            transform: rotateY(90deg) translateZ(400px);
-            transform-origin: left center;
+            transform: rotateY(90deg) translateZ(200px);
             background: rgba(0, 0, 255, 0.3);
         }
     </style>

@@ -63,10 +63,13 @@
             position: absolute;
             display: none;
         }
-
-        .cat.active {
+        .prev.cat {
+            z-index: 0;
             display: block;
-            z-index: 2;
+        }
+        .active.cat {
+            z-index: 1;    
+            display: block;        
         }
 
         .cat1 {
@@ -165,8 +168,8 @@
 <body>
     <div class="container">
         <div class="gallery">
-            <div class="cat cat1 active" id="cat1"></div>
-            <div class="cat cat2" id="cat2"></div>
+            <div class="cat cat1" id="cat1"></div>
+            <div class="cat cat2 active" id="cat2"></div>
             <div class="cat cat3" id="cat3"></div>
             <div class="cat cat4" id="cat4"></div>
             <div class="cat cat5" id="cat5"></div>
@@ -186,13 +189,19 @@
     window.onload = function () {
         document.querySelector('.thumbnails').addEventListener('click', function (e) {
             let target = document.querySelector(e.target.dataset.target);
-            if (!target) {
+            if (!target || target.classList.contains('active')) {
                 return;
             }
+            let prev = document.querySelector('.prev');
+            if (prev) {
+                prev.classList.remove('prev');
+            }
             let prevActive = document.querySelector('.active');
-            prevActive.classList.remove('active');
-            target.classList.add('active');
-            target.style.display = 'block';
+            if (prevActive) {
+                prevActive.classList.add('prev');
+                prevActive.classList.remove('active');
+                target.classList.add('active');
+            }
         });
     };
 </script>

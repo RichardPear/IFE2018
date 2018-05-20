@@ -126,7 +126,10 @@
             background-color: #0d8aee;
         }
 
-        .line {
+        label::after {
+            content: '';
+            display: block;
+            height: 2px;
             border-bottom: 2px solid #0d8aee;
             position: absolute;
             bottom: 1px;
@@ -134,13 +137,12 @@
             transition: all .5s ease-out;
             transform: translateX(-200%); /* 初始状态隐藏 */
         }
-
-        input:focus~label .line {
+        input:focus~label::after {
             transition: none;
             transform: none;
         }
         .form__label__content {
-            transition: all .5s ease-out;
+            transition: all 200ms cubic-bezier(0.0, 0, 0.2, 1);
         }
         .small-label {
             transform: translateY(-20px) scale(0.9);
@@ -173,14 +175,12 @@
                     <input type="email" class="form__input" id="email" name="email">
                     <label class="form__label" for="email">
                         <span class="form__label__content">Email</span>
-                        <div class="line"></div>
                     </label>
                 </div>
                 <div class="form__wrapper" data-wow-delay="0.6s">
                     <input type="password" class="form__input" id="password" name="password">
                     <label class="form__label" for="password">
                         <span class="form__label__content">Password</span>
-                        <div class="line"></div>
                     </label>
                 </div>
                 <div class="form__wrapper__submit pulse infinite" data-wow-delay="0.7s">

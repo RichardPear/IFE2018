@@ -133,13 +133,13 @@
             border-bottom: 2px solid #0d8aee;
             position: absolute;
             bottom: 1px;
-            width: 100%;
-            transition: all .5s ease-out;
-            transform: translateX(-200%); /* 初始状态隐藏 */
+            transition: all .5s cubic-bezier(0.0, 0, 0.2, 1);
+            width: 0; /* 初始状态隐藏 */
         }
         input:focus~label::after {
             transition: none;
             transform: none;
+            width: 100%;
         }
         .form__label__content {
             transition: all 200ms cubic-bezier(0.0, 0, 0.2, 1);
